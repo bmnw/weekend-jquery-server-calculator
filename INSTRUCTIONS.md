@@ -8,7 +8,19 @@ You are going to be building a server-side calculator. The logic for the calcula
 
 ### Calculator
 
+-[x] create file structure, create package.json, and install express
+-[x] write server code and test that server is listening on specified port
+-[x] source in jQuery, JS, and CSS files and test that they are sourced properly
+-[x] build out HTML structure for base mode functionality
+
 Create a user interface where the user can input two values (2 input elements) and the select type of mathematical operation. When the submit (`=` button) is clicked, capture this input, bundle it up in an object, and send this object to the server via a POST. There should also be a 'C' button that will clear the user input fields.
+
+-[] click handler for clear button to clear input fields
+-[] need a function to identify which of the math operator buttons was last clicked, then use that the value of operator property in the newEquation object being posted to the server
+-[] click handler for the equals button
+-[] equals button function needs to create a newEquation object that will be posted to the server with the properties: number-one, operator, number-two.
+-[] create a getEquationResult function using ajax that will receive the most recent equation result
+-[] create a getEquationHistory function using ajax that will request the complete history of entered equations and post it on the DOM (an array of equation objects formatted for easy reading on the DOM).
 
 Build out the server-side logic to compute the numbers as appropriate. The server should be able to handle Addition, Subtraction, Multiplication, and Division. Once the calculation is complete, send back the OK. You should do a GET request after the POST to get the actual calculation.
 
