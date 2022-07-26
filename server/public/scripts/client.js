@@ -5,7 +5,7 @@ $(readyNow);
 function readyNow() {
     console.log('ready now');
     $('.operator').on('click', captureMathOperator);
-    $('#equals').on('click', pushNewEquation);
+    $('#equals').on('click', postNewEquation);
     $('#clear-inputs').on('click', clearInputs);
 }
 
@@ -21,18 +21,63 @@ function clearInputs() {
     console.log('input 2', $('#input-two').val());
 }
 
+let inputOne;
+let operator;
+let inputTwo;
+
 /**
  * Pushes new equation object to the server
  */
 
-function pushNewEquation() {
+function postNewEquation() {
     console.log('in pushNewEquation');
-    let inputOne = $('#input-one').val(); // get the first input number
-    let operator = currentOperator;
-    let inputTwo = $('#input-two').val(); // get the second input number
-    console.log('input one, two:', inputOne, inputTwo);
+    inputOne = $('#input-one').val(); // get the first input number
+    operator = currentOperator; // get the math operator
+    inputTwo = $('#input-two').val(); // get the second input number
+    console.log('input one, operator, input two:', inputOne, operator, inputTwo);
     newEquation(inputOne, operator, inputTwo);
+    // postRequest();
 }
+
+function getEquations() {
+    console.log('in getEquations');
+    $.ajax({
+        method: 'GET',
+        url: '/equations'
+    }).then(function(response) {
+        console.log('response:', response);
+        for(let equation of response){
+            $('#equation-history').append(`
+                <p>
+                    ${equation.inputOne} ${equation.operator} ${equation.inputTwo}
+                </p>
+            `);
+        }
+    }).catch(function(error) {
+        console.log(error);
+        alert('something went wrong, please try again.');
+    });
+}
+
+// function postRequest() {
+//     console.log('in postRequest');
+//     // making a post request to the server
+//     $.ajax({
+//         method: 'POST', // type of request
+//         url: '/equation', // route to be matched on the server
+//         data: {
+//             equationToAdd: 
+//                 newEquation(inputOne, operator, inputTwo)
+//             }
+//     }).then(function(response){
+//         console.log('successful response');
+//         // refresh equation history
+//         getEquations(); // need to declare this function
+//     }).catch(function(response){
+//         // alert user to a failed response
+//         alert('something went wrong, please try again');
+//     })
+// }
 
 /**
  * Creates new equation object
@@ -51,6 +96,10 @@ function newEquation(input1, operator, input2) {
 }
 
 let currentOperator;
+
+/**
+ * Assigns the global variable currentOperator to the data-mode of the clicked math operator button
+ */
 
 function captureMathOperator() {
     console.log('in captureMathOperator');
