@@ -15,7 +15,7 @@ You are going to be building a server-side calculator. The logic for the calcula
 
 Create a user interface where the user can input two values (2 input elements) and the select type of mathematical operation. When the submit (`=` button) is clicked, capture this input, bundle it up in an object, and send this object to the server via a POST. There should also be a 'C' button that will clear the user input fields.
 
--[] click handler for clear button to clear input fields
+-[x] click handler for clear button to clear input fields
 -[] need a function to identify which of the math operator buttons was last clicked, then use that the value of operator property in the newEquation object being posted to the server
 -[] click handler for the equals button
 -[] equals button function needs to create a newEquation object that will be posted to the server with the properties: number-one, operator, number-two.
