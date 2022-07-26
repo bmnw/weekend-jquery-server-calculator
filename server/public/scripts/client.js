@@ -37,6 +37,7 @@ function postNewEquation() {
     console.log('input one, operator, input two:', inputOne, operator, inputTwo);
     newEquation(inputOne, operator, inputTwo);
     // postRequest();
+    getEquations();
 }
 
 function getEquations() {
