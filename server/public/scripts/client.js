@@ -30,7 +30,7 @@ let inputTwo;
  */
 
 function postNewEquation() {
-    console.log('in pushNewEquation');
+    console.log('in postNewEquation');
     inputOne = $('#input-one').val(); // get the first input number
     operator = currentOperator; // get the math operator
     inputTwo = $('#input-two').val(); // get the second input number
@@ -50,9 +50,10 @@ function getEquations() {
         for(let equation of response){
             $('#equation-history').append(`
                 <p>
-                    ${equation.inputOne} ${equation.operator} ${equation.inputTwo}
+                    ${equation.inputOne} ${equation.mathOperator} ${equation.inputTwo}
                 </p>
             `);
+            console.log(typeof equation.operator);
         }
     }).catch(function(error) {
         console.log(error);
