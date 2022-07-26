@@ -4,8 +4,9 @@ $(readyNow);
 
 function readyNow() {
     console.log('ready now');
-    $('#clear-inputs').on('click', clearInputs);
+    $('.operator').on('click', captureMathOperator);
     $('#equals').on('click', pushNewEquation);
+    $('#clear-inputs').on('click', clearInputs);
 }
 
 /**
@@ -27,7 +28,7 @@ function clearInputs() {
 function pushNewEquation() {
     console.log('in pushNewEquation');
     let inputOne = $('#input-one').val(); // get the first input number
-    let operator = ; // unsure how to capture which math operator was last clicked
+    let operator; // unsure how to capture which math operator was last clicked
     let inputTwo = $('#input-two').val(); // get the second input number
     console.log('input one, two:', inputOne, inputTwo);
     newEquation(inputOne, operator, inputTwo);
@@ -47,4 +48,8 @@ function newEquation(input1, operator, input2) {
     }
     console.log('equation object:', newEquation);
     return newEquation;
+}
+
+function captureMathOperator() {
+    console.log('in captureMathOperator');
 }
