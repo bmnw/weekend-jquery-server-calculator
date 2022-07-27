@@ -58,7 +58,7 @@ function getEquations() {
         for(let equation of response){
             $('#equation-history').append(`
                 <p>
-                    ${equation.inputOne} ${equation.mathOperator} ${equation.inputTwo}
+                    ${equation.inputOne} ${equation.mathOperator} ${equation.inputTwo} = ${equation.result}
                 </p>
             `);
         }
