@@ -36,6 +36,7 @@ function sendEquationToServer() {
         }
     }).then(function (response){
         getEquations();
+        clearInputs();
     }).catch(function (error){
         console.log(error);
         alert('Something went wrong. Please try again.');
@@ -49,7 +50,11 @@ function getEquations() {
         url: '/equations'
     }).then(function(response) {
         console.log('response:', response);
+        $('#result-display').empty();
         $('#equation-history').empty();
+        $('#result-display').append(`
+            ${response[response.length - 1].result}
+        `);
         for(let equation of response){
             $('#equation-history').append(`
                 <p>

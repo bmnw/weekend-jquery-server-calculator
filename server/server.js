@@ -23,6 +23,8 @@ app.get('/equations', (req, res) => {
 app.post('/equations', (req, res) => {
     const equationToAdd = req.body;
     console.log(req.body);
+    equationToAdd.result = equationToAdd.inputOne + equationToAdd.mathOperator + equationToAdd.inputTwo;
+    console.log(typeof equationToAdd.result);
     equations.push(equationToAdd);
     res.sendStatus(200);
     // res.send(equation);
