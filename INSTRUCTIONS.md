@@ -17,10 +17,11 @@ Create a user interface where the user can input two values (2 input elements) a
 
 -[x] click handler for clear button to clear input fields
 -[x] need a function to identify which of the math operator buttons was last clicked, then use that the value of operator property in the newEquation object being posted to the server
--[] click handler for the equals button
+-[x] click handler for the equals button
 -[x] equals button function needs to create a newEquation object that will be posted to the server with the properties: number-one, operator, number-two.
--[] create a getEquationResult function using ajax that will receive the most recent equation result
--[] create a getEquationHistory function using ajax that will request the complete history of entered equations and post it on the DOM (an array of equation objects formatted for easy reading on the DOM).
+-[x] create a getEquation function using ajax that will receive the updated equation array and display content on the DOM
+-[x] create sendEquationToServer function with ajax post request
+-[] do the math on the server side
 
 Build out the server-side logic to compute the numbers as appropriate. The server should be able to handle Addition, Subtraction, Multiplication, and Division. Once the calculation is complete, send back the OK. You should do a GET request after the POST to get the actual calculation.
 

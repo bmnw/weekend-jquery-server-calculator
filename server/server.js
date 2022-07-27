@@ -23,12 +23,29 @@ app.get('/equations', (req, res) => {
 app.post('/equations', (req, res) => {
     const equationToAdd = req.body;
     console.log(req.body);
-    equationToAdd.result = equationToAdd.inputOne + equationToAdd.mathOperator + equationToAdd.inputTwo;
-    console.log(typeof equationToAdd.result);
+    // equationToAdd.result = equationToAdd.inputOne + equationToAdd.mathOperator + equationToAdd.inputTwo;
+    equationToAdd.result = calcResult(req.body);
+    console.log('result:', equationToAdd.result);
+    // console.log(typeof equationToAdd.mathOperator);
     equations.push(equationToAdd);
     res.sendStatus(200);
     // res.send(equation);
 });
+
+function calcResult(objectInput) {
+    console.log('in calcResult');
+    let result;
+    if(objectInput.mathOperator === '+'){
+        result = Number(objectInput.inputOne) + Number(objectInput.inputTwo);
+    } else if(objectInput.mathOperator === '-'){
+        result = Number(objectInput.inputOne) - Number(objectInput.inputTwo);
+    } else if(objectInput.mathOperator === '*'){
+        result = Number(objectInput.inputOne) * Number(objectInput.inputTwo);
+    } else if(objectInput.mathOperator === '/'){
+        result = Number(objectInput.inputOne) / Number(objectInput.inputTwo);
+    }
+    return result;
+}
 
 app.listen(port, () => {
     console.log('listening on port', port);
