@@ -21,10 +21,6 @@ function clearInputs() {
     console.log('input 2', $('#input-two').val());
 }
 
-// let inputOne;
-// let operator;
-// let inputTwo;
-
 function sendEquationToServer() {
     console.log('in sendEquationToServer');
     console.log('input one:', $('#input-one').val());
