@@ -8,13 +8,7 @@ app.use(express.static('server/public'));
 
 app.use(express.urlencoded());
 
-const equations = [
-    {
-        inputOne: 12,
-        mathOperator: '+',
-        inputTwo: 12
-    }
-];
+const equations = [];
 
 app.get('/equations', (req, res) => {
     res.send(equations);
