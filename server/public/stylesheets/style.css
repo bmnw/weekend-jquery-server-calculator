@@ -1,3 +1,13 @@
 body {
     background-color: teal;
 }
+
+#display-field {
+    display: grid;
+    grid-template-columns: 200px [col-start] 50px [col-start];
+}
+
+#calc-input{
+    display: inline-grid;
+    grid-template-columns: 50px [col-start] 50px [col-start] 50px [col-start] 50px [col-start];
+}

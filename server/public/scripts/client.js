@@ -10,6 +10,10 @@ function readyNow() {
     $('#clear-inputs').on('click', clearInputs);
 }
 
+/**
+ * Sends get request for equation history on page load and displays equations on the DOM
+ */
+
 function displayEquationHistory() {
     console.log('in displayEquationHistory');
     // create a get request for the equation history
