@@ -5,7 +5,7 @@ $(readyNow);
 function readyNow() {
     console.log('ready now');
     displayEquationHistory();
-    // $('.operator').on('click', captureMathOperator);
+    // used in base mode // $('.operator').on('click', captureMathOperator);
     $('.calc-input').on('click', captureUserInput);
     $('#equation-submit').on('click', sendEquationToServer);
     $('#clear-inputs').on('click', clearInputs);
@@ -50,6 +50,7 @@ function displayEquationHistory() {
 
 function clearInputs() {
     console.log('in clearInputs');
+    // commented out base mode code
     // $('#input-one').val(''); // empty first input, set val to empty string
     // $('#input-two').val(''); // empty second input, set val to empty string
     // console.log('input 1', $('#input-one').val());
@@ -59,27 +60,41 @@ function clearInputs() {
     console.log(typeof $('#equation-entry').val());
 }
 
+// for stretch goals
 function sendEquationToServer() {
     console.log('in sendEquationToServer');
-    console.log('input one:', $('#input-one').val());
-    console.log('math operator:', currentOperator);
-    console.log('input two:', $('#input-two').val());
+    console.log('newEquation:', newEquation);
     $.ajax({
         type: 'POST',
         url: '/equations',
         data: {
-            inputOne: $('#input-one').val(),
-            mathOperator: currentOperator,
-            inputTwo: $('#input-two').val()
+            equation: newEquation
         }
-    }).then(function (response){
-        getEquations();
-        clearInputs();
-    }).catch(function (error){
-        console.log(error);
-        alert('Something went wrong. Please try again.');
     });
 }
+
+// for base mode
+// function sendEquationToServer() {
+//     console.log('in sendEquationToServer');
+//     console.log('input one:', $('#input-one').val());
+//     console.log('math operator:', currentOperator);
+//     console.log('input two:', $('#input-two').val());
+//     $.ajax({
+//         type: 'POST',
+//         url: '/equations',
+//         data: {
+//             inputOne: $('#input-one').val(),
+//             mathOperator: currentOperator,
+//             inputTwo: $('#input-two').val()
+//         }
+//     }).then(function (response){
+//         getEquations();
+//         clearInputs();
+//     }).catch(function (error){
+//         console.log(error);
+//         alert('Something went wrong. Please try again.');
+//     });
+// }
 
 function getEquations() {
     console.log('in getEquations');
@@ -106,30 +121,14 @@ function getEquations() {
     });
 }
 
+// let currentOperator;
+
 /**
- * Creates new equation object
+ * // for base mode // Assigns the global variable currentOperator to the data-mode of the clicked math operator button
  */
 
-// function newEquation(input1, operator, input2) {
-//     console.log('in newEquation');
-//     // create equation object with the input numbers and selected operator as properties
-//     let newEquation = {
-//         inputOne: input1,
-//         mathOperator: operator,
-//         inputTwo: input2
-//     }
-//     console.log('equation object:', newEquation);
-//     return newEquation;
+// function captureMathOperator() {
+//     console.log('in captureMathOperator');
+//     currentOperator = $(this).data('mode');
+//     console.log('clicked operator:', currentOperator);
 // }
-
-let currentOperator;
-
-/**
- * Assigns the global variable currentOperator to the data-mode of the clicked math operator button
- */
-
-function captureMathOperator() {
-    console.log('in captureMathOperator');
-    currentOperator = $(this).data('mode');
-    console.log('clicked operator:', currentOperator);
-}

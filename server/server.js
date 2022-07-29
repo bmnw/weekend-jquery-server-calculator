@@ -17,11 +17,10 @@ app.get('/equations', (req, res) => {
 app.post('/equations', (req, res) => {
     const equationToAdd = req.body;
     console.log(req.body);
-    // equationToAdd.result = equationToAdd.inputOne + equationToAdd.mathOperator + equationToAdd.inputTwo;
-    equationToAdd.result = calcResult(req.body);
-    console.log('result:', equationToAdd.result);
+    // equationToAdd.result = calcResult(req.body);
+    // console.log('result:', equationToAdd.result);
     // console.log(typeof equationToAdd.mathOperator);
-    equations.push(equationToAdd);
+    // equations.push(equationToAdd);
     res.sendStatus(200);
     // res.send(equation);
 });
