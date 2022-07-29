@@ -43,9 +43,12 @@ Keep a historical record of all math operations and solutions on the server. Dis
 
 - Convert the interface to look and behave like a calculator as shown below.
 
-- [] in index.html create calculator interface buttons, field to display clicked input
-- [] in style.css use grid or flexbox (probably) to format the buttons and field
+- [x] in index.html create calculator interface buttons, field to display clicked input
+- [x] in style.css use grid or flexbox (probably) to format the buttons and field
 - [] in client.js create function(s) that capture the button clicks and display that input in the input field
+      click handler for .calc-input
+      function in click handler uses .this to capture the data-mode of the clicked button
+      that data mode is displayed in the input field
 - [] post request triggered on click of the = button
 - [] string of input sent to the server
 - [] string is somehow interpreted as an equation and the result is calculated

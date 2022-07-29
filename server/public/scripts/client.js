@@ -5,9 +5,21 @@ $(readyNow);
 function readyNow() {
     console.log('ready now');
     displayEquationHistory();
-    $('.operator').on('click', captureMathOperator);
+    // $('.operator').on('click', captureMathOperator);
+    $('.calc-input').on('click', captureUserInput);
     $('#equation-submit').on('click', sendEquationToServer);
     $('#clear-inputs').on('click', clearInputs);
+}
+
+let newEquation = '';
+
+function captureUserInput() {
+    console.log('in captureUserInput');
+    let newInput = $(this).data('mode');
+    console.log('newInput:', newInput);
+    newEquation += newInput;
+    console.log('newEquation:', newEquation);
+    
 }
 
 /**
