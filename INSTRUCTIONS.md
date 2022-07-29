@@ -50,8 +50,8 @@ Keep a historical record of all math operations and solutions on the server. Dis
       function in click handler uses .this to capture the data-mode of the clicked button
       that data mode is displayed in the input field
 - [x] update clearInputs
-- [] post request triggered on click of the = button
-- [] string of input sent to the server
+- [x] post request triggered on click of the = button
+- [x] string of input sent to the server
 - [] string is somehow interpreted as an equation and the result is calculated
       maybe use .includes to locate math operators
 - [] result is added as an object property
