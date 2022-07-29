@@ -19,7 +19,7 @@ function captureUserInput() {
     console.log('newInput:', newInput);
     newEquation += newInput;
     console.log('newEquation:', newEquation);
-    
+    $('#equation-entry').val(newEquation);
 }
 
 /**
