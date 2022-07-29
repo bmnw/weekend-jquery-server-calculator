@@ -50,10 +50,13 @@ function displayEquationHistory() {
 
 function clearInputs() {
     console.log('in clearInputs');
-    $('#input-one').val(''); // empty first input, set val to empty string
-    $('#input-two').val(''); // empty second input, set val to empty string
-    console.log('input 1', $('#input-one').val());
-    console.log('input 2', $('#input-two').val());
+    // $('#input-one').val(''); // empty first input, set val to empty string
+    // $('#input-two').val(''); // empty second input, set val to empty string
+    // console.log('input 1', $('#input-one').val());
+    // console.log('input 2', $('#input-two').val());
+    newEquation = '';
+    $('#equation-entry').val(newEquation);
+    console.log(typeof $('#equation-entry').val());
 }
 
 function sendEquationToServer() {
