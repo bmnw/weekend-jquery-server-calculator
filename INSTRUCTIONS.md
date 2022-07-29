@@ -21,7 +21,9 @@ Create a user interface where the user can input two values (2 input elements) a
 -[x] equals button function needs to create a newEquation object that will be posted to the server with the properties: number-one, operator, number-two.
 -[x] create a getEquation function using ajax that will receive the updated equation array and display content on the DOM
 -[x] create sendEquationToServer function with ajax post request
--[] do the math on the server side
+-[x] do the math on the server side
+-[x] equation history needs to stay on the DOM when the page is refreshed
+    the history already exists after page refresh but it doesn't show until i click the submit button again. create a get request on page load to display existing equation history
 
 Build out the server-side logic to compute the numbers as appropriate. The server should be able to handle Addition, Subtraction, Multiplication, and Division. Once the calculation is complete, send back the OK. You should do a GET request after the POST to get the actual calculation.
 

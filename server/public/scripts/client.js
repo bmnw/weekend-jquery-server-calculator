@@ -4,9 +4,28 @@ $(readyNow);
 
 function readyNow() {
     console.log('ready now');
+    displayEquationHistory();
     $('.operator').on('click', captureMathOperator);
     $('#equation-submit').on('click', sendEquationToServer);
     $('#clear-inputs').on('click', clearInputs);
+}
+
+function displayEquationHistory() {
+    console.log('in displayEquationHistory');
+    // create a get request for the equation history
+    $.ajax({
+        type: 'GET',
+        url: '/equations'
+    }).then(function (response) {
+        console.log('response:', response);
+        for(let equation of response){
+            $('#equation-history').append(`
+                <p>
+                    ${equation.inputOne} ${equation.mathOperator} ${equation.inputTwo} = ${equation.result}
+                </p>
+            `);
+        }
+    });
 }
 
 /**
