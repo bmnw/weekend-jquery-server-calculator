@@ -17,26 +17,25 @@ app.get('/equations', (req, res) => {
 app.post('/equations', (req, res) => {
     const equationToAdd = req.body;
     console.log(req.body);
-    console.log(calcResult(req.body));
-    // equationToAdd.result = calcResult(req.body);
-    // console.log('result:', equationToAdd.result);
-    // console.log(typeof equationToAdd.mathOperator);
-    // equations.push(equationToAdd);
+    evaluateEquationString(req.body);
+    equationToAdd.result = evaluateEquationString(req.body);
+    console.log('equationToAdd.result:', equationToAdd.result);
+    equations.push(equationToAdd);
+    console.log(equations);
     res.sendStatus(200);
-    // res.send(equation);
 });
 
-// let numberOne = '';
-// let numberTwo = '';
-// let operator = '';
+let numberOne = '';
+let numberTwo = '';
+let operator = '';
 
-function calcResult(dataObjectInput) {
-    console.log('in calcResult');
-    let numberOne = '';
-    let numberTwo = '';
-    let operator = '';
+function evaluateEquationString(dataObjectInput) {
+    console.log('in evaluateEquationString');
+    numberOne = '';
+    numberTwo = '';
+    operator = '';
     let endIndex;
-    let result;
+    let finalResult;
     for(let i=0; i<dataObjectInput.equation.length; i +=1){
         if(dataObjectInput.equation[i] !== '+' && dataObjectInput.equation[i] !== '-' && dataObjectInput.equation[i] !== '*' && dataObjectInput.equation[i] !== '/'){
             console.log(dataObjectInput.equation[i]);
@@ -58,34 +57,27 @@ function calcResult(dataObjectInput) {
     console.log('numberTwo:', numberTwo);
     console.log('operator:', operator);
     console.log('full equation:', numberOne, operator, numberTwo);
-    if(operator === '+'){
-        result = Number(numberOne) + Number(numberTwo);
-    } else if(operator === '-'){
-        result = Number(numberOne) - Number(numberTwo);
-    } else if(operator === '*'){
-        result = Number(numberOne) * Number(numberTwo);
-    } else if(operator === '/'){
-        result = Number(numberOne) / Number(numberTwo);
-    }
-    return result;
+    finalResult = calcResult(numberOne, operator, numberTwo);
+    console.log('finalResult in evaluateEquationString:', finalResult);
+    return finalResult;
     // return new Function('return ' + dataObjectInput.equation)();
 } // end calcResult
 
-// used for base mode
-// function calcResult(objectInput) {
-//     console.log('in calcResult');
-//     let result;
-//     if(objectInput.mathOperator === '+'){
-//         result = Number(objectInput.inputOne) + Number(objectInput.inputTwo);
-//     } else if(objectInput.mathOperator === '-'){
-//         result = Number(objectInput.inputOne) - Number(objectInput.inputTwo);
-//     } else if(objectInput.mathOperator === '*'){
-//         result = Number(objectInput.inputOne) * Number(objectInput.inputTwo);
-//     } else if(objectInput.mathOperator === '/'){
-//         result = Number(objectInput.inputOne) / Number(objectInput.inputTwo);
-//     }
-//     return result;
-// }
+function calcResult(firstNum, mathOperator, secondNum) {
+    console.log('in calcResult');
+    let result;
+    if(mathOperator === '+'){
+        result = Number(firstNum) + Number(secondNum);
+    } else if(mathOperator === '-'){
+        result = Number(firstNum) - Number(secondNum);
+    } else if(mathOperator === '*'){
+        result = Number(firstNum) * Number(secondNum);
+    } else if(mathOperator === '/'){
+        result = Number(firstNum) / Number(secondNum);
+    }
+    console.log('result:', result);
+    return result;
+} // end calcResult
 
 app.listen(port, () => {
     console.log('listening on port', port);
