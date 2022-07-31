@@ -70,10 +70,43 @@ function clearInputs() {
     console.log(typeof $('#equation-entry').val());
 } // end clearInputs
 
+let inputComplete = true;
+
+/**
+ * Checks for complete equation syntax: two numbers separated by a math operator. Does this using a series of if statements. Returns whether inputComplete is true or false
+ */
+
+function checkForCompleteInput(equationInput){
+    console.log('in checkForCompleteInput');
+    if(equationInput.indexOf('+') === -1 && equationInput.indexOf('-') === -1 && equationInput.indexOf('*') === -1 && equationInput.indexOf('/') === -1) {
+        console.log('no math operator');
+        alert('The equation needs a math operator (+, -, *, /). And possibly a second number.');
+        inputComplete = false;
+        return inputComplete;
+    }
+    if(equationInput[0] === '+' || equationInput[0] === '-' || equationInput[0] === '*' || equationInput[0] === '/') {
+        console.log('begins with a math operator');
+        alert('The equation cannot start with a math operator (+, -, *, /). Please add a first number.');
+        inputComplete = false;
+        return inputComplete;
+    }
+    if(equationInput[equationInput.length-1] === '+' || equationInput[equationInput.length-1] === '-' || equationInput[equationInput.length-1] === '*' || equationInput[equationInput.length-1] === '/') {
+        console.log('ends with a math operator');
+        alert('The equation cannot end with a math operator (+, -, *, /). Please add a second number.');
+        inputComplete = false;
+        return inputComplete;
+    }
+} // end checkForCompleteInput
+
 // for stretch goals
 function sendEquationToServer() {
     console.log('in sendEquationToServer');
     console.log('newEquation:', newEquation);
+    inputComplete = true;
+    checkForCompleteInput(newEquation);
+    if(inputComplete === false){
+        return;
+    }
     $.ajax({
         type: 'POST',
         url: '/equations',

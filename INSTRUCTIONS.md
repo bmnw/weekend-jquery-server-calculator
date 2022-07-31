@@ -66,12 +66,18 @@ Keep a historical record of all math operations and solutions on the server. Dis
 
 - Only allow the POST call to happen if all necessary input is ready.
 
+- [] create a conditional within sendEquationtoServer that checks that a math operator is included in the string and that the first and last indexes of the string are not a math operator
+- [] if no operator, or if the first or last index are an operator, send alert that the equation cannot be calculated as typed and return to stop the function
+
   *Data integrity is superfluously important! Sometimes users hit tje "go button" without fully inputting the needed fields. Show an alert if they left something empty and don't send bad or incomplete data to the server.*
 
 - Allow a user to clear the history by clicking on a button. Technically this shouldn't be a GET or a POST. Look into making a DELETE request!
 
-- [] make 'clear history' button
-- research delete requests
+- [x] make 'clear history' button
+- [x] research delete requests
+- [x] create ajax delete request on client.js
+- [x] create app.delete that calls a function that empties the equations array using .pop()
+- [x] create a function in client.js that displays a message that the equation history has been cleared and call that function in the delete request .then
 
   *GETs are used to, well, get information from the server. POSTs are used to send new info to the server. DELETEs are used for, you guessed it, deleting info already on the server.*
 
