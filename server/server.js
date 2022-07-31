@@ -26,11 +26,50 @@ app.post('/equations', (req, res) => {
     // res.send(equation);
 });
 
+// let numberOne = '';
+// let numberTwo = '';
+// let operator = '';
+
 function calcResult(dataObjectInput) {
     console.log('in calcResult');
+    let numberOne = '';
+    let numberTwo = '';
+    let operator = '';
+    let endIndex;
     let result;
-    return new Function('return ' + dataObjectInput.equation)();
-}
+    for(let i=0; i<dataObjectInput.equation.length; i +=1){
+        if(dataObjectInput.equation[i] !== '+' && dataObjectInput.equation[i] !== '-' && dataObjectInput.equation[i] !== '*' && dataObjectInput.equation[i] !== '/'){
+            console.log(dataObjectInput.equation[i]);
+            numberOne += dataObjectInput.equation[i];
+        } else {
+            console.log(dataObjectInput.equation[i]);
+            operator = dataObjectInput.equation[i];
+            endIndex = i;
+            console.log('endIndex:', endIndex);
+            break;
+        }
+    }
+    for(let i=(endIndex + 1); i<dataObjectInput.equation.length; i +=1){
+        console.log('in second for loop');
+        console.log(dataObjectInput.equation[i]);
+        numberTwo += dataObjectInput.equation[i];
+    }
+    console.log('numberOne:', numberOne);
+    console.log('numberTwo:', numberTwo);
+    console.log('operator:', operator);
+    console.log('full equation:', numberOne, operator, numberTwo);
+    if(operator === '+'){
+        result = Number(numberOne) + Number(numberTwo);
+    } else if(operator === '-'){
+        result = Number(numberOne) - Number(numberTwo);
+    } else if(operator === '*'){
+        result = Number(numberOne) * Number(numberTwo);
+    } else if(operator === '/'){
+        result = Number(numberOne) / Number(numberTwo);
+    }
+    return result;
+    // return new Function('return ' + dataObjectInput.equation)();
+} // end calcResult
 
 // used for base mode
 // function calcResult(objectInput) {
