@@ -10,7 +10,7 @@ function readyNow() {
     $('#equation-submit').on('click', sendEquationToServer);
     $('#clear-inputs').on('click', clearInputs);
     $('#clear-history').on('click', clearEquationHistory);
-    $('body').on('click', '#equation-history', rerunEquation);
+    $('body').on('click', '.equation-record', rerunEquation);
 }
 
 let newEquation = '';
@@ -38,9 +38,11 @@ function displayEquationHistory() {
         console.log('response:', response);
         for(let equation of response){
             $('#equation-history').append(`
-                <p>
-                    ${equation.equation} = ${equation.result}
-                </p>
+                <div class="equation-record">
+                    <p>
+                        ${equation.equation} = ${equation.result}
+                    </p>
+                </div>
             `);
             // commented out base mode code
             // $('#equation-history').append(`
@@ -161,9 +163,11 @@ function getEquations() {
         `);
         for(let equation of response){
             $('#equation-history').append(`
-                <p>
-                    ${equation.equation} = ${equation.result}
-                </p>
+                <div class="equation-record">
+                    <p>
+                        ${equation.equation} = ${equation.result}
+                    </p>
+                </div>
             `);
         }
     }).catch(function(error) {
@@ -209,6 +213,7 @@ function getEquationsAfterDelete() {
 
 function rerunEquation(){
     console.log('in rerunEquation');
+
 }
 
 // let currentOperator;
