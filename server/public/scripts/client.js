@@ -37,12 +37,21 @@ function displayEquationHistory() {
         for(let equation of response){
             $('#equation-history').append(`
                 <p>
-                    ${equation.inputOne} ${equation.mathOperator} ${equation.inputTwo} = ${equation.result}
+                    ${equation.equation} = ${equation.result}
                 </p>
             `);
+            // commented out base mode code
+            // $('#equation-history').append(`
+            //     <p>
+            //         ${equation.inputOne} ${equation.mathOperator} ${equation.inputTwo} = ${equation.result}
+            //     </p>
+            // `);
         }
+    }).catch(function (error) {
+        console.log(error);
+        alert('Something went wrong. Please try again.');
     });
-}
+} // end displayEquationHistory
 
 /**
  * Clears values that the user entered into the input fields
@@ -58,7 +67,7 @@ function clearInputs() {
     newEquation = '';
     $('#equation-entry').val(newEquation);
     console.log(typeof $('#equation-entry').val());
-}
+} // end clearInputs
 
 // for stretch goals
 function sendEquationToServer() {
@@ -70,8 +79,14 @@ function sendEquationToServer() {
         data: {
             equation: newEquation
         }
+    }).then(function (response) {
+        console.log(response);
+        displayEquationHistory();
+    }).catch(function (error) {
+        console.log(error);
+        alert('Something went wrong. Please try again.');
     });
-}
+} // end sendEquationToServer
 
 // for base mode
 // function sendEquationToServer() {

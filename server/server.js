@@ -12,7 +12,7 @@ const equations = [];
 
 app.get('/equations', (req, res) => {
     res.send(equations);
-});
+}); // end app.get /equations
 
 app.post('/equations', (req, res) => {
     const equationToAdd = req.body;
@@ -23,7 +23,7 @@ app.post('/equations', (req, res) => {
     equations.push(equationToAdd);
     console.log(equations);
     res.sendStatus(200);
-});
+}); // end app.post /equations
 
 let numberOne = '';
 let numberTwo = '';
