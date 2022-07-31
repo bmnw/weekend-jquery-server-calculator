@@ -29,6 +29,10 @@ let numberOne = '';
 let numberTwo = '';
 let operator = '';
 
+/**
+ * Evaluates the posted data object to determine the inputed numbers and math operator. Returns the final result, which is the calculation done within calcResult.
+ */
+
 function evaluateEquationString(dataObjectInput) {
     console.log('in evaluateEquationString');
     numberOne = '';
@@ -47,12 +51,12 @@ function evaluateEquationString(dataObjectInput) {
             console.log('endIndex:', endIndex);
             break;
         }
-    }
+    } // end first for loop
     for(let i=(endIndex + 1); i<dataObjectInput.equation.length; i +=1){
         console.log('in second for loop');
         console.log(dataObjectInput.equation[i]);
         numberTwo += dataObjectInput.equation[i];
-    }
+    } // end second for loop
     console.log('numberOne:', numberOne);
     console.log('numberTwo:', numberTwo);
     console.log('operator:', operator);
@@ -60,8 +64,12 @@ function evaluateEquationString(dataObjectInput) {
     finalResult = calcResult(numberOne, operator, numberTwo);
     console.log('finalResult in evaluateEquationString:', finalResult);
     return finalResult;
-    // return new Function('return ' + dataObjectInput.equation)();
+    // return new Function('return ' + dataObjectInput.equation)(); // found this option online but it seems to potentially have the same issues as eval()? at a minimum, using it didn't seem to be in the spirit of the assignment.
 } // end calcResult
+
+/**
+ * Calculates the equation one of four ways, depending on the math operator used, and returns the result
+ */
 
 function calcResult(firstNum, mathOperator, secondNum) {
     console.log('in calcResult');

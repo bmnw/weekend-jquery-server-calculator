@@ -52,12 +52,11 @@ Keep a historical record of all math operations and solutions on the server. Dis
 - [x] update clearInputs
 - [x] post request triggered on click of the = button
 - [x] string of input sent to the server
-- [] string is somehow interpreted as an equation and the result is calculated
-      maybe use .includes to locate math operators
-- [] result is added as an object property
-- [] the object is pushed into the equations array
-- [] success response sent to the client
-- [] client side get request receives the updated array of equations and displays the result of the most recent submittal
+- [x] string is somehow interpreted as an equation and the result is calculated
+- [x] result is added as an object property
+- [x] the object is pushed into the equations array
+- [x] success response sent to the client
+- [x] client side get request receives the updated array of equations and displays the result of the most recent submittal
 
   *Interfaces that mirror real world objects are often more intuitive and self-explanatory for users.*
 
