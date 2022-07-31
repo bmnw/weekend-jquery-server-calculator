@@ -207,6 +207,10 @@ function getEquationsAfterDelete() {
     });
 } // end getEquationsAfterDelete
 
+/**
+ * Captures selected equation record in equation history and reruns that equation, alert infos user which equation was rerun
+ */
+
 function rerunEquation(){
     console.log('in rerunEquation');
     let equationToRerun = $(this).html();
@@ -221,7 +225,9 @@ function rerunEquation(){
     }).then(function (response) {
         console.log(response);
         getEquations();
-        alert(`${equationToRerun} has been calculated.`);
+        setTimeout(function rerunAlert(){
+            alert(`${equationToRerun} has been calculated.`)
+        }, 400);
     }).catch (function (error) {
         console.log(error);
         alert('Something went wrong. Please try again.');
