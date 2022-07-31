@@ -140,7 +140,38 @@ function getEquations() {
 
 function clearEquationHistory() {
     console.log('in clearEquationHistory');
-}
+    $.ajax({
+        type: 'DELETE',
+        url: '/equations'
+    }).then(function (response) {
+        console.log(response);
+        getEquationsAfterDelete();
+    }).catch(function (error) {
+        console.log(error);
+        alert('Something went wrong. Please try again');
+    });
+} // end clearEquationHistory
+
+function getEquationsAfterDelete() {
+    console.log('in getEquationsAfterDelete');
+    $.ajax({
+        type: 'GET',
+        url: '/equations'
+    }).then(function (response) {
+        console.log('should be empty array:', response);
+        $('#result-display').empty();
+        $('#equation-history').empty();
+        $('#equation-history').append(`
+            <p>
+                ${response}
+                Equation history has been cleared.
+            </p>
+        `);
+    }).catch(function (error) {
+        console.log(error);
+        alert('Something went wrong. Please try again.');
+    });
+} // end getEquationsAfterDelete
 
 // let currentOperator;
 

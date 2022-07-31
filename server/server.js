@@ -25,6 +25,12 @@ app.post('/equations', (req, res) => {
     res.sendStatus(200);
 }); // end app.post /equations
 
+app.delete('/equations', (req, res) => {
+    emptyEquationsArray(equations);
+    console.log('equations array:', equations);
+    res.sendStatus(200);
+}); // end app.delete /equations
+
 let numberOne = '';
 let numberTwo = '';
 let operator = '';
@@ -86,6 +92,14 @@ function calcResult(firstNum, mathOperator, secondNum) {
     console.log('result:', result);
     return result;
 } // end calcResult
+
+function emptyEquationsArray(arrayInput) {
+    console.log('in emptyEquationsArray');
+    for(let i=0; i=arrayInput.length; i+=1){
+        arrayInput.pop();
+    } // end for loop
+    console.log('equations:', equations);
+} // end emptyEquationsArray
 
 app.listen(port, () => {
     console.log('listening on port', port);
