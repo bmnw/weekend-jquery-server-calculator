@@ -10,6 +10,7 @@ function readyNow() {
     $('#equation-submit').on('click', sendEquationToServer);
     $('#clear-inputs').on('click', clearInputs);
     $('#clear-history').on('click', clearEquationHistory);
+    $('body').on('click', '#equation-history', rerunEquation);
 }
 
 let newEquation = '';
@@ -205,6 +206,10 @@ function getEquationsAfterDelete() {
         alert('Something went wrong. Please try again.');
     });
 } // end getEquationsAfterDelete
+
+function rerunEquation(){
+    console.log('in rerunEquation');
+}
 
 // let currentOperator;
 
