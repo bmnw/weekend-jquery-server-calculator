@@ -38,11 +38,9 @@ function displayEquationHistory() {
         console.log('response:', response);
         for(let equation of response){
             $('#equation-history').append(`
-                <div class="equation-record">
-                    <p>
+                    <p class="equation-record">
                         ${equation.equation} = ${equation.result}
                     </p>
-                </div>
             `);
             // commented out base mode code
             // $('#equation-history').append(`
@@ -163,11 +161,9 @@ function getEquations() {
         `);
         for(let equation of response){
             $('#equation-history').append(`
-                <div class="equation-record">
-                    <p>
+                    <p class="equation-record">
                         ${equation.equation} = ${equation.result}
                     </p>
-                </div>
             `);
         }
     }).catch(function(error) {
@@ -213,7 +209,8 @@ function getEquationsAfterDelete() {
 
 function rerunEquation(){
     console.log('in rerunEquation');
-
+    let equationToRerun = $(this).html();
+    console.log('equation to rerun:', equationToRerun);
 }
 
 // let currentOperator;
