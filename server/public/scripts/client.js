@@ -20,7 +20,7 @@ function captureUserInput() {
     newEquation += newInput;
     console.log('newEquation:', newEquation);
     $('#equation-entry').val(newEquation);
-}
+} // end captureUserInput
 
 /**
  * Sends get request for equation history on page load and displays equations on the DOM
@@ -81,7 +81,8 @@ function sendEquationToServer() {
         }
     }).then(function (response) {
         console.log(response);
-        displayEquationHistory();
+        getEquations();
+        clearInputs();
     }).catch(function (error) {
         console.log(error);
         alert('Something went wrong. Please try again.');
@@ -126,7 +127,7 @@ function getEquations() {
         for(let equation of response){
             $('#equation-history').append(`
                 <p>
-                    ${equation.inputOne} ${equation.mathOperator} ${equation.inputTwo} = ${equation.result}
+                    ${equation.equation} = ${equation.result}
                 </p>
             `);
         }
@@ -134,7 +135,7 @@ function getEquations() {
         console.log(error);
         alert('Something went wrong. Please try again.');
     });
-}
+} // end getEquations
 
 // let currentOperator;
 
