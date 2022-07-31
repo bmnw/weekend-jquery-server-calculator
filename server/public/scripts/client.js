@@ -9,6 +9,7 @@ function readyNow() {
     $('.calc-input').on('click', captureUserInput);
     $('#equation-submit').on('click', sendEquationToServer);
     $('#clear-inputs').on('click', clearInputs);
+    $('#clear-history').on('click', clearEquationHistory);
 }
 
 let newEquation = '';
@@ -136,6 +137,10 @@ function getEquations() {
         alert('Something went wrong. Please try again.');
     });
 } // end getEquations
+
+function clearEquationHistory() {
+    console.log('in clearEquationHistory');
+}
 
 // let currentOperator;
 
