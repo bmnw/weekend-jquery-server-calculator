@@ -39,7 +39,7 @@ function displayEquationHistory() {
         for(let equation of response){
             $('#equation-history').append(`
                     <p class="equation-record">
-                        ${equation.equation} = ${equation.result}
+                        ${equation.equation}
                     </p>
             `);
             // commented out base mode code
@@ -162,7 +162,7 @@ function getEquations() {
         for(let equation of response){
             $('#equation-history').append(`
                     <p class="equation-record">
-                        ${equation.equation} = ${equation.result}
+                        ${equation.equation}
                     </p>
             `);
         }
@@ -211,7 +211,22 @@ function rerunEquation(){
     console.log('in rerunEquation');
     let equationToRerun = $(this).html();
     console.log('equation to rerun:', equationToRerun);
-}
+    console.log(typeof equationToRerun);
+    $.ajax({
+        type: 'POST',
+        url: '/equations',
+        data: {
+            equation: equationToRerun
+        }
+    }).then(function (response) {
+        console.log(response);
+        getEquations();
+        alert(`${equationToRerun} has been calculated.`);
+    }).catch (function (error) {
+        console.log(error);
+        alert('Something went wrong. Please try again.');
+    });
+} // end rerunEquation
 
 // let currentOperator;
 
