@@ -85,7 +85,10 @@ Keep a historical record of all math operations and solutions on the server. Dis
 
 - Allow a user to click on an entry in the History list to re-run that calculation. This should display the answer on the calculator interface like a normal calculation.
 
--[] 
+- [x] gave the <p> within the data display functions the class of equation-record to be able isolate the equation string with .html() 
+- [x] rerunEquation is triggered when that class element is clicked
+- [x] fleshed out rerunEquation function with ajax post and calling getEquations, alert informs user which equation has been recalculated
+- [x] updated rerunEquation function to include a rerunAlert function within a setTimeout, to display the equation that has been rerun once the result has been received from the server and displayed on the DOM
 
   *Anticipating a user's wants and adding the feature in the interface is often a logical progression that ends up in stretch goals for project.*
 
