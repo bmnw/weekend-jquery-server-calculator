@@ -1,13 +1,60 @@
 body {
     background-color: teal;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+button {
+    font-family: 'Chakra Petch', sans-serif;
 }
 
 #display-field {
-    display: grid;
-    grid-template-columns: 200px [col-start] 50px [col-start];
+    display: flex;
+    max-width: 200px;
 }
 
-#user-input{
-    display: inline-grid;
-    grid-template-columns: 50px [col-start] 50px [col-start] 50px [col-start] 50px [col-start];
+#equation-entry{
+    border-radius: 2.5rem;
+    width: 200px;
+    height: 50px;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+#user-input {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 200px;
+}
+
+#zero {
+    flex-grow: 2;
+    border-radius: 2rem;
+}
+
+.calc-input {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+#submit-clear {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 200px;
+}
+#clear-inputs {
+    width: 100px;
+    height: 40px;
+    border-radius: 2rem;
+}
+
+#equation-submit {
+    width: 100px;
+    height: 40px;
+    border-radius: 2rem;
+}
+
+#clear-history {
+    width: 100px;
+    height: 40px;
+    border-radius: 2rem;
 }
