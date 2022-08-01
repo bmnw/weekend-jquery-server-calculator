@@ -1,28 +1,60 @@
 body {
-    background-color: teal;
+    background-color: #FFC0CB;
     font-family: 'Chakra Petch', sans-serif;
+}
+
+header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
 }
 
 button {
     font-family: 'Chakra Petch', sans-serif;
 }
 
+#calculator-history-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.calculator {
+    border-radius: 10px;
+    border-width: thick; 	
+    border-color: #00FFFF;
+    border-style: solid;
+    padding: 10px;
+    max-width: 215px;
+    max-height: 320px;
+    background-color: darkgrey;
+}
+
 #display-field {
     display: flex;
-    max-width: 200px;
+    max-width: 215px;
+    margin-bottom: 5px;
 }
 
 #equation-entry{
     border-radius: 2.5rem;
-    width: 200px;
+    width: 215px;
     height: 50px;
     font-family: 'Chakra Petch', sans-serif;
+    text-align: right;
+    border-width: thick; 	
+    border-color: #FF00FF;
+    border-style: solid;
+    background-color: darkgrey;
+    font-size: 20px;
 }
 
 #user-input {
     display: flex;
     flex-flow: row wrap;
-    max-width: 200px;
+    max-width: 215px;
+    column-gap: 5px;
+    row-gap: 5px;
 }
 
 #zero {
@@ -34,27 +66,86 @@ button {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    border-width: thick; 	
+    border-color: #00FF00;
+    border-style: solid;
+    background-color: darkgrey;
+    font-size: 20px;
+}
+
+#divide, #multiply, #minus, #plus {
+    border-width: thick; 	
+    border-color: #FFFF00;
+    border-style: solid;
 }
 
 #submit-clear {
     display: flex;
     flex-flow: row wrap;
-    max-width: 200px;
+    column-gap: 5px;
+    max-width: 215px;
+    margin-top: 5px;
 }
+
 #clear-inputs {
-    width: 100px;
+    flex-grow: 2;
     height: 40px;
     border-radius: 2rem;
+    border-width: thick; 	
+    border-color: #FF4500;
+    border-style: solid;
+    background-color: darkgrey;
+    font-size: 20px;
 }
 
 #equation-submit {
-    width: 100px;
+    flex-grow: 3;
     height: 40px;
     border-radius: 2rem;
+    border-width: thick; 	
+    border-color: #00FFFF;
+    border-style: solid;
+    background-color: darkgrey;
+    font-size: 20px;
+}
+
+#results {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#result-display {
+    text-align: center;
+    margin: 18px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#result-label {
+    display: inline-block;
+    margin: 18px;
+    font-size: 18px;
 }
 
 #clear-history {
-    width: 100px;
-    height: 40px;
+    width: 160px;
+    height: 75px;
     border-radius: 2rem;
+    margin: 10 10 10 0;
+    background-color: darkgrey;
+    border-width: thick; 	
+    border-color:  	#9400D3;
+    border-style: solid;
+    padding: 2px;
+    font-size: 20px;
+}
+
+#equation-history {
+    display: grid;
+    text-align: center;
+    max-width: 150px;
+    font-weight: bold;
+    border: solid;
+    border-radius: 2rem;
+    border-width: thick;
 }

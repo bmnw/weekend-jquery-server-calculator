@@ -9,43 +9,58 @@
     </head>
 
     <body>
-        <h1>Basic Computation Calculator</h1>
+        <header>
+            <h1>Basic Calculator</h1>   
+        </header>
+        <div id="calculator-history-container">
+            <div class="calculator">
+                <div id="display-field">
+                    <input id="equation-entry">
+                </div>
+                <div id="user-input">
+                    <button class="calc-input" class="number" data-mode="7" id="seven">7</button>
+                    <button class="calc-input" class="number" data-mode="8" id="eight">8</button>
+                    <button class="calc-input" class="number" data-mode="9" id="nine">9</button>
+                    <button class="calc-input" class="operator" data-mode="/" id="divide">/</button>
+
+                    <button class="calc-input" class="number" data-mode="4" id="four">4</button>
+                    <button class="calc-input" class="number" data-mode="5" id="five">5</button>
+                    <button class="calc-input" class="number" data-mode="6" id="six">6</button>
+                    <button class="calc-input" class="operator" data-mode="*" id="multiply">*</button>
+
+                    <button class="calc-input" class="number" data-mode="1" id="one">1</button>
+                    <button class="calc-input" class="number" data-mode="2" id="two">2</button>
+                    <button class="calc-input" class="number" data-mode="3" id="three">3</button>
+                    <button class="calc-input" class="operator" data-mode="-" id="minus">-</button>
+                    
+                    <button class="calc-input" class="number" data-mode="0" id="zero">0</button>
+                    <button class="calc-input" class="decimal" data-mode="." id="decimal">.</button>
+                    <button class="calc-input" class="operator" data-mode="+" id="plus">+</button>
+                </div>
+                <div id="submit-clear">
+                    <button id="clear-inputs">Clear</button>
+                    <button id="equation-submit">=</button>
+                </div>
+            </div>
+            <div id="results">
+                <h3 id="result-label">Result:</h3> <div id="result-display"></div>
+            </div>
+            <div id="history">
+                <button id="clear-history">Clear History</button>
+
+                <div id="equation-history">
+                    <p>Equation History:</p> 
+                    <p>Click equation to rerun.</p>
+                </div>
+            </div>
+        </div>
         <h3>Please note: 
-        <ul>
-            <li>This calculator can only evaluate equations with two numbers and one math operator. (Ex. 34.65 / 76.12)</li>
-            <li>Negative numbers cannot be used as input at this time.</li>
-        </ul>    
-        <h3>We apologize for any inconvience. We plan to level up soon.</h3>
-        
-        <div id="display-field">
-            <input id="equation-entry">
-           
-        </div>
-        <div id="user-input">
-            <button class="calc-input" class="number" data-mode="7" id="seven">7</button>
-            <button class="calc-input" class="number" data-mode="8" id="eight">8</button>
-            <button class="calc-input" class="number" data-mode="9" id="nine">9</button>
-            <button class="calc-input" class="operator" data-mode="/" id="divide">/</button>
-
-            <button class="calc-input" class="number" data-mode="4" id="four">4</button>
-            <button class="calc-input" class="number" data-mode="5" id="five">5</button>
-            <button class="calc-input" class="number" data-mode="6" id="six">6</button>
-            <button class="calc-input" class="operator" data-mode="*" id="multiply">*</button>
-
-            <button class="calc-input" class="number" data-mode="1" id="one">1</button>
-            <button class="calc-input" class="number" data-mode="2" id="two">2</button>
-            <button class="calc-input" class="number" data-mode="3" id="three">3</button>
-            <button class="calc-input" class="operator" data-mode="-" id="minus">-</button>
-            
-            <button class="calc-input" class="number" data-mode="0" id="zero">0</button>
-            <button class="calc-input" class="decimal" data-mode="." id="decimal">.</button>
-            <button class="calc-input" class="operator" data-mode="+" id="plus">+</button>
-        </div>
-        <div id="submit-clear">
-            <button id="clear-inputs">Clear</button>
-            <button id="equation-submit">=</button>
-        </div>
-
+            <ul>
+                <li>This calculator can only evaluate equations with two numbers and one math operator. (Ex. 34.65 / 76.12)</li>
+                <li>Negative numbers cannot be used as input at this time.</li>
+            </ul> 
+    </body>
+         <!-- used for base mode -->
             <!-- <input 
                 id="input-one"
                 placeholder="enter number"
@@ -60,19 +75,4 @@
                 placeholder="enter number"
                 type="number"
             > -->
-            
-            
-      
-
-        <h3>Result:</h3>
-        
-        <div id="result-display">
-        </div>
-
-        <button id="clear-history">Clear History</button>
-
-        <div id="equation-history">
-
-        </div>
-    </body>
 </html>
