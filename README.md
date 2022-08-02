@@ -34,7 +34,7 @@ A history of equations is displayed on the right side of the webpage. The user c
 
 ## Usage
 
-Make daily math easier by using this app! Whether your divvying up the restaurant dinner bill, figuring out your video game budget for the month, or researching which store has cheaper rolled oats by the ounce, this server-side calculator will make the calculators a breeze!
+Make daily math easier by using this app! Whether you're divvying up the restaurant dinner bill, figuring out your video game budget for the month, or researching which store has cheaper rolled oats by the ounce, this server-side calculator will make calculations a breeze!
 
 
 
