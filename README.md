@@ -1,6 +1,6 @@
 # Project Name
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Server-Side Calculator
 
 ## Description
 
@@ -21,6 +21,20 @@ A history of equations is displayed on the right side of the webpage. The user c
     - Node.js
     - Express
     - jQuery
+
+## Installation
+
+1. Fork and clone this repository.
+2. Open repository folder in an editor of your choice.
+3. Run npm install in your terminal.
+4. In server.js, make sure that the port number for the server is available for listening on your device.
+5. Run npm start in your terminal.
+6. Open your browser and navigate to localhost:PORT-NUMBER.
+7. Solve equations using the calculator!
+
+## Usage
+
+Make daily math easier by using this app! Whether your divvying up the restaurant dinner bill, figuring out your video game budget for the month, or researching which store has cheaper rolled oats by the ounce, this server-side calculator will make the calculators a breeze!
 
 
 
